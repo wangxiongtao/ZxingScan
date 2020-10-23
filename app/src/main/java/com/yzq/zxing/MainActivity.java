@@ -146,8 +146,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "请输入要生成二维码图片的字符串", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                bitmap = CodeCreator.createQRCode(contentEtString, 400, 400, null);
+                Bitmap logo = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+                bitmap = CodeCreator.createQRCode(contentEtString, 800,800, logo);
                 if (bitmap != null) {
                     contentIv.setImageBitmap(bitmap);
                 }
@@ -162,8 +162,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return;
                 }
 
-                Bitmap logo = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
-                bitmap = CodeCreator.createQRCode(contentEtString, 400, 400, logo);
+
+                bitmap = CodeCreator.syncEncodeBarcode(contentEtString, 800, 100, 20);
 
                 if (bitmap != null) {
                     contentIvWithLogo.setImageBitmap(bitmap);
